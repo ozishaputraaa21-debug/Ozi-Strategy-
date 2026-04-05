@@ -3,35 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
-    <title>Portfolio Dividen</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="service-worker.js" defer></script>
+    <title>Portfolio Dividen Dashboard</title>
 </head>
 <body>
     <header>
-        <h1>Welcome to the Portfolio Dividen Dashboard</h1>
+        <h1>Portfolio Dividen</h1>
+        <nav>
+            <ul>
+                <li><a href="#overview" class="tab active">Overview</a></li>
+                <li><a href="#holdings" class="tab">Holdings</a></li>
+                <li><a href="#compound" class="tab">Compound Calculator</a></li>
+            </ul>
+        </nav>
     </header>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <div id="dashboard">
-        <h2>Interactive Dashboard</h2>
-        <!-- Dashboard content goes here -->
-    </div>
-    <script src="service-worker.js"></script>
-    <script>
-        // Register service worker
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('service-worker.js')
-                .then(function() {
-                    console.log('Service Worker Registered');
-                });
-        }
-    </script>
+    <main>
+        <div id="overview" class="tab-content active">
+            <h2>Overview</h2>
+            <div id="chart"></div> <!-- Donut chart will render here -->
+            <div class="cards">
+                <!-- Cards for Portfolio Summary -->
+                <div class="card">
+                    <h3>Total Investment</h3>
+                    <p>$10,000</p>
+                </div>
+                <div class="card">
+                    <h3>Total Returns</h3>
+                    <p>$1,200 (12%)</p>
+                </div>
+            </div>
+        </div>
+        <div id="holdings" class="tab-content">
+            <h2>Your Holdings</h2>
+            <table>
+                <tr>
+                    <th>Asset</th>
+                    <th>Quantity</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Bitcoin</td>
+                    <td>0.5</td>
+                    <td>$25,000</td>
+                </tr>
+                <tr>
+                    <td>Ethereum</td>
+                    <td>2.0</td>
+                    <td>$10,000</td>
+                </tr>
+            </table>
+        </div>
+        <div id="compound" class="tab-content">
+            <h2>Compound Calculator</h2>
+            <form id="compound-form">
+                <label for="principal">Principal:</label>
+                <input type="number" id="principal" required>
+                <label for="rate">Rate of Interest (%):</label>
+                <input type="number" id="rate" required>
+                <label for="time">Time (years):</label>
+                <input type="number" id="time" required>
+                <button type="submit">Calculate</button>
+            </form>
+            <div id="compound-result"></div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 Portfolio Dividen. All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
 </body>
 </html>
