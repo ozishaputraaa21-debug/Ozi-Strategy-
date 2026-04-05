@@ -1,1 +1,37 @@
-<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>Portfolio Dividen Dashboard</title>\n    <link rel="stylesheet" href="styles.css">\n</head>\n<body>\n    <header>\n        <h1>Portfolio Dividen Dashboard</h1>\n    </header>\n    <main>\n        <section id="portfolio">\n            <h2>Your Portfolio</h2>\n            <div id="portfolio-items">\n                <!-- Portfolio items will be dynamically loaded here -->\n            </div>\n        </section>\n        <section id="dividends">\n            <h2>Your Dividends</h2>\n            <div id="dividend-list">\n                <!-- Dividend information will be displayed here -->\n            </div>\n        </section>\n    </main>\n    <footer>\n        <p>&copy; 2026 Portfolio Dividen Dashboard</p>\n    </footer>\n    <script src="app.js"></script>\n</body>\n</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <title>Portfolio Dividen</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Portfolio Dividen Dashboard</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div id="dashboard">
+        <h2>Interactive Dashboard</h2>
+        <!-- Dashboard content goes here -->
+    </div>
+    <script src="service-worker.js"></script>
+    <script>
+        // Register service worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(function() {
+                    console.log('Service Worker Registered');
+                });
+        }
+    </script>
+</body>
+</html>
